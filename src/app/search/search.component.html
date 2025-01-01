@@ -1,6 +1,28 @@
-<p>
-    Implement search in this component
-</p>
-<p>
-    Implement details in the <a [routerLink]="['/details/123']">details component</a>
-</p>
+@if (!!error) {
+    <div class="error">{{ error }}</div>
+}
+
+<div>
+    <input type="text" placeholder="Person" [formControl]="searchForm.controls.term" />
+    <select [formControl]="searchForm.controls.color" (change)="selectedChanged($event)">
+        <option [value]="null">Select a color</option>
+        <option *ngFor="let color of colorOptions" [value]="color.value">{{ color.label }}</option>
+    </select>
+    <button class="search-button" [disabled]="!searchForm.value.term && !searchForm.value.color" (click)="search()">Search</button>
+</div>
+
+@if (showSearchResults) {
+    <h1>Search Results</h1>
+
+    @if (searchResults?.length > 0) {
+        <div class="container">
+            <div *ngFor="let result of searchResults" class="card" [routerLink]="['/details/', result.id]">
+                {{ result.name }}
+            </div>
+        </div>
+    }
+
+    @if (searchResults?.length == 0) {
+        <div class="no-results">No results found, please search again.</div>
+    }
+}

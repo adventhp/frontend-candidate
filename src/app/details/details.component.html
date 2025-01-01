@@ -1,6 +1,26 @@
+@if (!!error) {
+    <div class="error">{{ error }}</div>
+}
+
 <div>
-    Implement details in this component.
+    <a [routerLink]="['/']">Back to search</a>
 </div>
-<p>
-    Implement search in the <a [routerLink]="['/']">search component</a>
-</p>
+
+
+@if (person) {
+<div>
+    <div>
+        <h1>{{ person.name }}</h1>
+    </div>
+   
+    <div class="secondary-text">
+        Favorite Color: {{ person.favorite_color | titlecase }}
+    </div>
+    <br/>
+
+    <div class="quotes" *ngFor="let quote of person.quotes | keyvalue">
+        <div>"{{ quote.value.join(" ") }}"</div>
+        <div class="secondary-text">{{ quote.key | number:'1.0':'en-US' }} Like{{quote.key > 1 ? 's' : '' }}</div>
+    </div>
+</div>
+}
