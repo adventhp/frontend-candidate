@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SearchComponent } from './search/search.component';
-import { DetailsComponent } from './details/details.component';
+import { SearchComponent } from './pages/search/search.component';
+import { DetailsComponent } from './pages/details/details.component';
 
 @NgModule({
   declarations: [

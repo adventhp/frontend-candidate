@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DetailsComponent } from './details/details.component';
-import { SearchComponent } from './search/search.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { SearchComponent } from './pages/search/search.component';
 
 const routes: Routes = [
   { path: '', component: SearchComponent },
@@ -9,7 +9,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {})],
+  imports: [RouterModule.forRoot(routes, {
+    bindToComponentInputs: true,
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
