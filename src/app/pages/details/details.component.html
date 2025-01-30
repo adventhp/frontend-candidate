@@ -13,12 +13,14 @@
           <div class="quotes-list__item">
             <p class="quotes-list__item-content">"{{quote.content}}"</p>
             <p class="quotes-list__item-likes">{{quote.likes}} Likes</p>
-          </div>
+          </div> 
         }
       </div>
     } @else {
       <p class="user-details__no-quotes">No quotes found</p>
     }
-
+  } 
+  @else if(errorData) {
+    <app-server-error-card [errorTitle]="'Page not found'" [errorData]="errorData"></app-server-error-card>
   }
 </div>

@@ -54,11 +54,13 @@ export class SearchFiltersComponent {
   onSearch(): void {
     const formValue = this.filterForm.getRawValue();
 
-    // Update the URL with the selected color
-    this.router.navigate([], {
-      queryParams: { color: formValue.color },
-      queryParamsHandling: 'merge',
-    });
+    if (formValue.color) {
+      // Update the URL with the selected color
+      this.router.navigate([], {
+        queryParams: { color: formValue.color },
+        queryParamsHandling: 'merge',
+      });
+    }
 
     this.searchEvent.emit(formValue);
   }

@@ -1,6 +1,6 @@
 <app-search-filters (searchEvent)="loadUsers($event)"></app-search-filters>
 
-@if (users().length) {
+@if (users().length && !errorData) {
   <div class="users-list">
     @for (user of users(); track user.id) {
       <a [routerLink]="['/details', user.id]" class="users-list__card">
@@ -8,6 +8,12 @@
       </a>
     }
   </div>
-} @else {
-  <div class="no-results">No users found</div>
+}
+@else if (errorData) {
+  <app-server-error-card [errorTitle]="'Page not found'" [errorData]="errorData"></app-server-error-card>
+}
+@else {
+  <div class="no-results">
+    No users found
+  </div>
 }

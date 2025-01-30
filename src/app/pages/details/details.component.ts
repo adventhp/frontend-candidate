@@ -1,4 +1,5 @@
 import { Location } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
@@ -16,15 +17,20 @@ export class DetailsComponent implements OnInit {
 
   user: User;
   quotes: UserQuoteItem[];
+  errorData: HttpErrorResponse | undefined;
 
   private userService = inject(UserService);
   private location = inject(Location);
 
   ngOnInit(): void {
     this.userService.getUserById(this.id)
-      .subscribe(user => {
-        this.user = user;
-        this.quotes = this.generateUserQuoteItems(user.quotes);
+      .subscribe({
+        next: user => {
+          this.user = user;
+          this.quotes = this.generateUserQuoteItems(user.quotes);
+          this.errorData = undefined;
+        },
+        error: (res: HttpErrorResponse) => this.errorData = res,
       });
   }
 

@@ -1,0 +1,26 @@
+
+.server-error {
+  padding: 12px;
+  border-left: 4px solid #d32f2f;
+  background-color: #ffebee;
+  color: #d32f2f;
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 16px 0;
+  border-radius: 4px;
+
+  *::first-letter {
+    text-transform: uppercase;
+  }
+
+  & .message {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  & .details {
+    font-size: 14px;
+    color: #b71c1c;
+    margin-top: 4px;
+  }
+}
