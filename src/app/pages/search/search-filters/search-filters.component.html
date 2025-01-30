@@ -1,0 +1,20 @@
+<form class="search-filter" [formGroup]="filterForm" (ngSubmit)="onSearch()">
+  <div class="search-filter__term">
+    <input
+      type="text"
+      placeholder="Search for a user"
+      formControlName="term"
+      (keyup.enter)="onSearch()"
+    />
+  </div>
+  <div class="search-filter__color">
+    <select formControlName="color">
+      @for (color of colors; track $index) {
+        <option [value]="color">
+          {{color | titlecase}}
+        </option>
+      }
+    </select>
+  </div>
+  <button class="search-filter__btn" type="submit">Search</button>
+</form>

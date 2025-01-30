@@ -1,6 +1,24 @@
-<div>
-    Implement details in this component.
+<button class="home-link" (click)="goBack()">Back to search result</button>
+
+<div class="user-details">
+  @if (user) {
+    <h1 class="user-details__title">{{user.name}}</h1>
+    <p class="user-details__color-block">
+      <span class="color-block__title">Favorite Color:</span>
+      <span [ngStyle]="{'background-color': user.favorite_color}" class="color-block__name">{{user.favorite_color}}</span>
+    </p>
+    @if(quotes.length) {
+      <div class="quotes-list">
+        @for (quote of quotes; track $index) {
+          <div class="quotes-list__item">
+            <p class="quotes-list__item-content">"{{quote.content}}"</p>
+            <p class="quotes-list__item-likes">{{quote.likes}} Likes</p>
+          </div>
+        }
+      </div>
+    } @else {
+      <p class="user-details__no-quotes">No quotes found</p>
+    }
+
+  }
 </div>
-<p>
-    Implement search in the <a [routerLink]="['/']">search component</a>
-</p>

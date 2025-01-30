@@ -1,6 +1,13 @@
-<p>
-    Implement search in this component
-</p>
-<p>
-    Implement details in the <a [routerLink]="['/details/123']">details component</a>
-</p>
+<app-search-filters (searchEvent)="loadUsers($event)"></app-search-filters>
+
+@if (users().length) {
+  <div class="users-list">
+    @for (user of users(); track user.id) {
+      <a [routerLink]="['/details', user.id]" class="users-list__card">
+        {{ user.name }}
+      </a>
+    }
+  </div>
+} @else {
+  <div class="no-results">No users found</div>
+}

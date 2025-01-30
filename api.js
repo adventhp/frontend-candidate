@@ -143,6 +143,7 @@ app.use((err, req, res, next) => {
   res.status(500).send('Server error occurred');
 });
 
-app.listen(5000, () => {
-  console.log('Backend started at: http://localhost:5000');
+// 5000 port is already used by system process
+app.listen(5001, () => {
+  console.log('Backend started at: http://localhost:5001');
 });

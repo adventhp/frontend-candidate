@@ -1,0 +1,86 @@
+.user-details {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  &__title {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  &__color-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background: #e0f2f1;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__no-quotes {
+    text-align: center;
+    font-size: 16px;
+    color: #999;
+    margin-top: 20px;
+  }
+}
+
+.color-block {
+  &__title {
+    color: #004d4d;
+  }
+
+  &__name {
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+}
+
+.quotes-list {
+  margin-top: 20px;
+
+  &__item {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 12px;
+  }
+
+  &__item-content {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+  }
+
+  &__item-likes {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+  }
+}
+
+.home-link {
+  all: unset;
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 16px;
+  color: #008080;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #005f5f;
+    text-decoration: underline;
+  }
+}

@@ -1,29 +1,25 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { UserSearchParams } from './user.mode.service';
 import { Observable } from 'rxjs';
-import { User, UserPreview } from '../models/user.model';
+import { environment } from 'src/environments/environment';
+import { User } from '../models/user.model';
+import { UserSearchParams, UserSearchResponse } from './user.service.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  http: HttpClient;
-  apiUrl = environment.apiUrl;
+  private apiUrl = environment.apiUrl;
+  private http = inject(HttpClient);
 
-  constructor() {
-    this.http = inject(HttpClient);
-  }
-
-  getUsers(queryParams: UserSearchParams): Observable<UserPreview[]> {
+  getUsers(queryParams: UserSearchParams): Observable<UserSearchResponse> {
     const params = this.getParams(queryParams);
-    return this.http.get<UserPreview[]>(`${this.apiUrl}/users`, { params });
+    return this.http.get<UserSearchResponse>(`${this.apiUrl}/search`, { params });
   }
 
   getUserById(id: number): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/users/${id}`);
+    return this.http.get<User>(`${this.apiUrl}/details/${id}`);
   }
 
   private getParams(params: Object): HttpParams {

@@ -1,0 +1,36 @@
+.users-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+  padding-top: 30px;
+  margin-top: 30px;
+  border-top: 1px solid #f0f0f0;
+
+
+  &__card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 12px 16px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 1/1;
+    transition: transform 0.2s ease-in-out;
+    font-weight: 500;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.no-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 100px auto;
+  font-size: 1.5rem;
+}
